@@ -4,6 +4,18 @@ export default function FindByName() {
   const [name, setName] = React.useState("");
   const [videoGames, setVideoGames] = React.useState([]);
 
+  const getFilteredItems = (name, videoGames) => {
+    if (!name) {
+      return videoGames;
+    }
+
+    fetch(`http://localhost:8080/videogames/getByName/${name}`)
+      .then((res) => res.json())
+      .then((result) => {
+        setVideoGames(result);
+      });
+  };
+
   const handleClickCheck = () => {
     fetch(`http://localhost:8080/videogames/getByName/${name}`)
       .then((res) => res.json())
@@ -11,6 +23,8 @@ export default function FindByName() {
         setVideoGames(result);
       });
   };
+
+  const filteredItems = getFilteredItems(name, videoGames);
 
   return (
     <div>
@@ -21,7 +35,6 @@ export default function FindByName() {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
-      <button onClick={handleClickCheck}>Search</button>
       {videoGames.map((videoGame) => (
         <div>
           Name: {videoGame.name}
