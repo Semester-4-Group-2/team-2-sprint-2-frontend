@@ -1,15 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+</style>
 
 const Section = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #23272a;
+  background-color: #3e8e41 ;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
+  height: 60px;
   z-index: 100;
 
   @media only screen and (max-width: 768px) {
@@ -27,21 +31,32 @@ const Container = styled.div`
 
   @media only screen and (max-width: 768px) {
     width: 100%;
-    padding: 10px;
+     scroll-snap-align: none;
   }
 `;
 
 const Links = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center; /* added this line */
-  gap: 20px;
+  height: 100%; /* Set a fixed height */
 
   & a {
     color: white;
     text-decoration: none;
+    font-size: 20px;
+    padding: 20px;
+    line-height: 20px; /* Use line-height instead of padding */
+  }
+
+  & a:hover {
+    color: black;
+    background-color: white;
+    border-radius: 5px;
+    line-height: 60px; /* Adjust the line-height to match the height of the parent element */
   }
 `;
+
+
 
 
 const List = styled.ul`
@@ -67,7 +82,6 @@ const Navbar = () => {
               Video Games
             </Link>
             <Link to="/binarysearch" className="links">
-              Binary Search Tree
             </Link>
           </List>
         </Links>

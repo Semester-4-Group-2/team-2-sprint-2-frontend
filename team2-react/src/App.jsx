@@ -22,6 +22,7 @@ const Container = styled.div`
   overflow-y: scroll;
   scrollbar-width: none;
   padding-top: 60px; /* Add top padding to account for the navbar */
+  font-family: "Lato", sans-serif;
 
   &::-webkit-scrollbar {
     display: none;
@@ -32,14 +33,21 @@ const Container = styled.div`
   }
 `;
 
+const Header = styled.h1`
+  font-size: 4rem;
+  font-weight: 100vh;
+  color: #4CAF50;
+  text-align: center;
+  
+`;
+
 function App() {
   return (
     <Container>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></link>
       <Router>
-        <header>
-          <h1>Final Sprint, Team 2</h1>
+      <Header>GameGo</Header>
           <Navbar />
-        </header>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videogames" element={<VideoGames />} />
