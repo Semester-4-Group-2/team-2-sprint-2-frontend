@@ -35,7 +35,7 @@ function App() {
       <Router>
         <Navbar />
         <header>
-          <h1></h1>
+          <h1>Final Sprint, Team 2</h1>
         </header>
         <Routes>
           <Route path="/" element={<Home />} />
