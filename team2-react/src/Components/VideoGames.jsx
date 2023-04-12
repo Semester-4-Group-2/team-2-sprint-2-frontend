@@ -6,6 +6,16 @@ import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 export default function VideoGames() {
     const handleSubmit = (e) => e.preventDefault()
   return (
+
+    <main>
+      Select which function.
+      <nav>
+        <Link to="/videogames/getAll" className="links">
+          Get Full List
+        </Link>
+      </nav>
+    </main>
+
     <header>
       <form className="search" onSubmit={handleSubmit}>
         <input className="search__input" type="text" id="search" />
@@ -14,5 +24,6 @@ export default function VideoGames() {
         </button>
       </form>
     </header>
+
   );
 }
