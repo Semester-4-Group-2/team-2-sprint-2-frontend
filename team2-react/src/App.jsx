@@ -10,6 +10,8 @@ import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import VideoGames from "./Components/VideoGames";
 import Navbar from "./Components/Navbar";
+import AddVideoGame from "./Components/AddVideoGame files/AddVideoGame";
+import GameAdded from "./Components/AddVideoGame files/GameAdded";
 
 function App() {
   return (
@@ -37,6 +39,8 @@ function App() {
           path="/videogames/getByPlatform?platform={platform}"
           element={<FindByPlatform />}
         />
+        <Route path="/videogames/add" element={<AddVideoGame />} />
+        <Route path="/videogames/added" element={<GameAdded />} />
       </Routes>
       <Footer />
     </Router>

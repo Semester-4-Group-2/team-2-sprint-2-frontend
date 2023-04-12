@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import AddVideoGame from "./AddVideoGame files/AddVideoGame";
 
 export default function VideoGames() {
   return (
@@ -10,6 +11,7 @@ export default function VideoGames() {
           Get Full List
         </Link>
       </nav>
+      <AddVideoGame />
     </main>
   );
 }
