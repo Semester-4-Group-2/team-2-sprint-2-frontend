@@ -46,17 +46,11 @@ function App() {
           <Route path="/videogames/getAll" element={<FindAll />} />
           {/* confirm search specific */}
           <Route path="/videogames/getById/" element={<FindByID />} />
-          <Route path="/videogames/getByName/{name}" element={<FindByName />} />
+          <Route path="/videogames/getByName/" element={<FindByName />} />
+          <Route path="/videogames/getByGenre/" element={<FindByGenre />} />
+          <Route path="/videogames/getByDevelopers/" element={<FindByDev />} />
           <Route
-            path="/videogames/getByGenre/{genre}"
-            element={<FindByGenre />}
-          />
-          <Route
-            path="/videogames/getByDevelopers/{developers}"
-            element={<FindByDev />}
-          />
-          <Route
-            path="/videogames/getByPlatform?platform={platform}"
+            path="/videogames/getByPlatforms/"
             element={<FindByPlatform />}
           />
           <Route path="/videogames/add" element={<AddVideoGame />} />

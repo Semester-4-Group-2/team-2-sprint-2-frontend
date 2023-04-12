@@ -7,12 +7,12 @@ export default function VideoGames() {
     <main>
       <h1>Select which function.</h1>
       <nav>
-        <Link to="/videogames/getAll" className="links">
-          Get Full List
-        </Link>
-        <Link to="/videogames/getById/" className="links">
-          Search By ID
-        </Link>
+        <Link to="/videogames/getAll">Get Full List</Link>
+        <Link to="/videogames/getById/">Search By ID</Link>
+        <Link to={"/videogames/getByName/"}>Search By Name</Link>
+        <Link to={"/videogames/getByDevelopers/"}>Search By Developer</Link>
+        <Link to={"/videogames/getByPlatforms/"}>Search By Platform</Link>
+        <Link to={"/videogames/getByGenre/"}>Search By Genre</Link>
       </nav>
       <AddVideoGame />
     </main>
