@@ -9,46 +9,57 @@ import FindByPlatform from "./Components/FindBy/FindByPlatform";
 import Footer from "./Components/Footer";
 import Home from "./Components/Home";
 import VideoGames from "./Components/VideoGames";
+import Navbar from "./Components/Navbar";
+import styled from "styled-components";
+
+const Container = styled.div`
+  height: 100vh;
+  scroll-snap-type: y mandatory;
+  scollintoview: smooth;
+  scroll-behavior: smooth;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  padding-top: 60px; /* Add top padding to account for the navbar */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  @media only screen and (max-width: 768px) {
+    scroll-snap-type: none;
+  }
+`;
 
 function App() {
   return (
-    <Router>
-      <header>
-        <h1>Final Sprint, Team 2</h1>
-        <nav>
-          <Link to="/" className="links">
-            Home
-          </Link>
-          <Link to="/videogames" className="links">
-            Video Games
-          </Link>
-          <Link to="/binarysearch" className="links">
-            Binary Search Tree
-          </Link>
-        </nav>
-      </header>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/videogames" element={<VideoGames />} />
-        <Route path="/videogames/getAll" element={<FindAll />} />
-        {/* confirm search specific */}
-        <Route path="/videogames/getById/{id}" element={<FindByID />} />
-        <Route path="/videogames/getByName/{name}" element={<FindByName />} />
-        <Route
-          path="/videogames/getByGenre/{genre}"
-          element={<FindByGenre />}
-        />
-        <Route
-          path="/videogames/getByDevelopers/{developers}"
-          element={<FindByDev />}
-        />
-        <Route
-          path="/videogames/getByPlatform?platform={platform}"
-          element={<FindByPlatform />}
-        />
-      </Routes>
-      <Footer />
-    </Router>
+    <Container>
+      <Router>
+        <Navbar />
+        <header>
+          <h1>Final Sprint, Team 2</h1>
+        </header>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/videogames" element={<VideoGames />} />
+          <Route path="/videogames/getAll" element={<FindAll />} />
+          {/* confirm search specific */}
+          <Route path="/videogames/getById/{id}" element={<FindByID />} />
+          <Route path="/videogames/getByName/{name}" element={<FindByName />} />
+          <Route
+            path="/videogames/getByGenre/{genre}"
+            element={<FindByGenre />}
+          />
+          <Route
+            path="/videogames/getByDevelopers/{developers}"
+            element={<FindByDev />}
+          />
+          <Route
+            path="/videogames/getByPlatform?platform={platform}"
+            element={<FindByPlatform />}
+          />
+        </Routes>
+        <Footer />
+      </Router>
+    </Container>
   );
 }
 
