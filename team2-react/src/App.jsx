@@ -16,7 +16,7 @@ function App() {
     <Router>
       <header>
         <h1>Final Sprint, Team 2</h1>
-        {/* <Navbar /> */}
+        <Navbar />
       </header>
       <Routes>
         <Route path="/" element={<Home />} />
