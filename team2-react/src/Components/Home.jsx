@@ -4,6 +4,8 @@ import Carousel from "react-elastic-carousel";
 
 import "./styles.css";
 
+
+
 export default function Home() {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -51,6 +53,11 @@ export default function Home() {
     },
   ];
 
+  const handleClick = () => {
+    // Your button click logic here
+    console.log("Button clicked!");
+  };
+
   return (
     <div className="App">
       <h1>Latest News and Updates</h1>
@@ -64,6 +71,7 @@ export default function Home() {
             massive open world, customize your character, and make choices that
             will shape the story.
           </p>
+          <button onClick={handleClick}>Read More</button>
         </div>
         <div className="article">
           <img src="./images/test2.png" alt="News 2" />
@@ -74,6 +82,7 @@ export default function Home() {
             expansion promises new characters, new quests, and plenty of
             challenges.
           </p>
+          <button onClick={handleClick}>Read More</button>
         </div>
         <div className="article">
           <img src="./images/test3.png" alt="News 3" />
@@ -84,6 +93,7 @@ export default function Home() {
             activities to choose from, including co-op missions and
             player-vs-player modes.
           </p>
+          <button onClick={handleClick}>Read More</button>
         </div>
       </div>
       <div className="sellers">
