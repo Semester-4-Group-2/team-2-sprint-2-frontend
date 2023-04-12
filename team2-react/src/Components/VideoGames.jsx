@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import AddVideoGame from "./AddVideoGame files/AddVideoGame";
-import FindByID from "./FindBy/FindByID";
 
 export default function VideoGames() {
   return (
@@ -11,9 +10,11 @@ export default function VideoGames() {
         <Link to="/videogames/getAll" className="links">
           Get Full List
         </Link>
+        <Link to="/videogames/getById/" className="links">
+          Search By ID
+        </Link>
       </nav>
       <AddVideoGame />
-      <FindByID />
     </main>
   );
 }

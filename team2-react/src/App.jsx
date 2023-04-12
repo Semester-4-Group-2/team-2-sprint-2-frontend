@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import FindAll from "./Components/FindBy/FindAll";
 import FindByDev from "./Components/FindBy/FindByDev";
@@ -45,7 +45,7 @@ function App() {
           <Route path="/videogames" element={<VideoGames />} />
           <Route path="/videogames/getAll" element={<FindAll />} />
           {/* confirm search specific */}
-          <Route path="/videogames/getById/{id}" element={<FindByID />} />
+          <Route path="/videogames/getById/" element={<FindByID />} />
           <Route path="/videogames/getByName/{name}" element={<FindByName />} />
           <Route
             path="/videogames/getByGenre/{genre}"
