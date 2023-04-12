@@ -1,0 +1,56 @@
+.App {
+  margin: 50px auto;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+}
+
+.latest-news {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; 
+}
+
+.article {
+  width: 300px;
+  margin: 10px;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+.article img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.top-games {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.top-games img {
+  width: 250px;
+  height: 150px;
+  margin: 10px;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+.sellers {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
