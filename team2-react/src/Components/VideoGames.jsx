@@ -6,7 +6,9 @@ export default function VideoGames() {
     <main>
       Select which function.
       <nav>
-        <Link to="/videogames/getAll">Get Full List</Link>
+        <Link to="/videogames/getAll" className="links">
+          Get Full List
+        </Link>
       </nav>
     </main>
   );
