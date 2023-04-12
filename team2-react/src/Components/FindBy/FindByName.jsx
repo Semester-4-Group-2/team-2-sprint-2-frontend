@@ -1,43 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByName() {
-  const [name, setName] = React.useState("");
-  const [videoGames, setVideoGames] = React.useState([]);
-
-  const getFilteredItems = (name, videoGames) => {
-    if (!name) {
-      return videoGames;
-    }
-
-    fetch(`http://localhost:8080/videogames/getByName/${name}`)
+  const [query, setQuery] = useState("");
+  const [videoGames, setVideoGames] = useState([]);
+  const changeQuery = (e) => {
+    setQuery(e.target.value);
+    e.preventDefault();
+  };
+  useEffect(() => {
+    fetch(`http://localhost:8080/videogames/getByName/${query}`)
       .then((res) => res.json())
       .then((result) => {
         setVideoGames(result);
       });
-  };
-
-  const handleClickCheck = () => {
-    fetch(`http://localhost:8080/videogames/getByName/${name}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setVideoGames(result);
-      });
-  };
-
-  const filteredItems = getFilteredItems(name, videoGames);
+  }, []);
 
   return (
     <div>
       <h2>Find Video Games by Name</h2>
-      <input
-        type="text"
-        name="name-input"
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
+      <input type="text" onChange={changeQuery} />
       {videoGames.map((videoGame) => (
-        <div>
-          Name: {videoGame.name}
+        <div key={videoGame.name}>
+          <Link>Name: {videoGame.name}</Link>
           <br />
           Developer(s): {videoGame.developers}
           <br />
