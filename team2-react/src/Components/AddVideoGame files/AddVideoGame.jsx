@@ -8,7 +8,6 @@ export default function AddVideoGame() {
   const [genre, setGenre] = React.useState("");
 
   const handleClick = (e) => {
-    e.preventDefault();
     const videoGame = { name, developers, platforms, genre };
     fetch("http://localhost:8080/videogames/add", {
       method: "POST",
