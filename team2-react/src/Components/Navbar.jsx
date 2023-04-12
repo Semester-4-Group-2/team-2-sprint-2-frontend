@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Section = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #454545;
+  background-color: #23272a;
   position: fixed;
   top: 0;
   left: 0;
@@ -34,6 +34,7 @@ const Container = styled.div`
 const Links = styled.div`
   display: flex;
   align-items: center;
+  justify-content: center; /* added this line */
   gap: 20px;
 
   & a {
@@ -41,6 +42,7 @@ const Links = styled.div`
     text-decoration: none;
   }
 `;
+
 
 const List = styled.ul`
   display: flex;

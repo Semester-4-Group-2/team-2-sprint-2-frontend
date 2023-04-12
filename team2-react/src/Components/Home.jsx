@@ -53,7 +53,7 @@ export default function Home() {
 
   return (
     <div className="App">
-      <h2>Latest News and Updates</h2>
+      <h1>Latest News and Updates</h1>
       <div className="latest-news">
         <div className="article">
           <img src="./images/test1.png" alt="News 1" />
@@ -86,6 +86,7 @@ export default function Home() {
           </p>
         </div>
       </div>
+      <div className="sellers">
       <h1>Top Sellers This Week</h1>
       <Carousel breakPoints={breakPoints}>
         {images.map((image, index) => (
@@ -98,6 +99,7 @@ export default function Home() {
           />
         ))}
       </Carousel>
+      </div>
     </div>
   );
 }
