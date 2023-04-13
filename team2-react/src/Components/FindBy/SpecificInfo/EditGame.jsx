@@ -1,5 +1,56 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import styled from "styled-components";
+
+const EditFormWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+`;
+const StyledForm = styled.form`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background-color: #f7f7f7;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+`;
+
+
+const StyledLabel = styled.label`
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+`;
+
+const StyledInput = styled.input`
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 20px;
+`;
+
+const StyledButton = styled.button`
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #4caf50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: #3f8c43;
+  }
+`;
 
 export default function EditGame() {
   const { id } = useParams();
@@ -41,50 +92,46 @@ export default function EditGame() {
   };
 
   return (
-    <div>
-      <h3>Edit {videoGame.name}</h3>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="name">Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          value={videoGame.name}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="developers">Developers:</label>
-        <input
-          type="text"
-          id="developers"
-          name="developers"
-          value={videoGame.developers}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="platforms">Platforms:</label>
-        <input
-          type="text"
-          id="platforms"
-          name="platforms"
-          value={videoGame.platforms}
-          onChange={handleChange}
-        />
-        <br />
-        <label htmlFor="genre">Genre:</label>
-        <input
-          type="text"
-          id="genre"
-          name="genre"
-          value={videoGame.genre}
-          onChange={handleChange}
-        />
-        <br />
-        <button type="submit">Save Changes</button>
-      </form>
-      <Link to={{ pathname: `/videogames/game`, state: { id } }}>
-        <button>Cancel</button>
-      </Link>
-    </div>
-  );
+    <EditFormWrapper>
+    <h3>Edit {videoGame.name}</h3>
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledLabel htmlFor="name">Name:</StyledLabel>
+      <StyledInput
+        type="text"
+        id="name"
+        name="name"
+        value={videoGame.name}
+        onChange={handleChange}
+      />
+      <StyledLabel htmlFor="developers">Developers:</StyledLabel>
+      <StyledInput
+        type="text"
+        id="developers"
+        name="developers"
+        value={videoGame.developers}
+        onChange={handleChange}
+      />
+      <StyledLabel htmlFor="platforms">Platforms:</StyledLabel>
+      <StyledInput
+        type="text"
+        id="platforms"
+        name="platforms"
+        value={videoGame.platforms}
+        onChange={handleChange}
+      />
+      <StyledLabel htmlFor="genre">Genre:</StyledLabel>
+      <StyledInput
+        type="text"
+        id="genre"
+        name="genre"
+        value={videoGame.genre}
+        onChange={handleChange}
+      />
+      <StyledButton type="submit">Save Changes</StyledButton>
+    </StyledForm>
+    <Link to={{ pathname: `/videogames/game`, state: { id: id } }}>
+  <button>Cancel</button>
+</Link>
+  </ EditFormWrapper>
+);
 }

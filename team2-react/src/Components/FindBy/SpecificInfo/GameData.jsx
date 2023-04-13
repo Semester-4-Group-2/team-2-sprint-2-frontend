@@ -21,9 +21,9 @@ export default function GameData() {
       <p>Developers: {videoGame.developers}</p>
       <p>Platforms: {videoGame.platforms}</p>
       <p>Genre: {videoGame.genre}</p>
-      <Link to={`/videogames/edit/${videoGame.id}`}>
-  <button>Update</button>
-</Link>
+      <Link to={{ pathname: `/videogames/edit/${id}`, state: { videoGame } }}>
+        <button>Update</button>
+      </Link>
     </div>
   );
 }
