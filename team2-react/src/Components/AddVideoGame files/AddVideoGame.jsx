@@ -72,7 +72,7 @@ export default function AddVideoGame() {
     })
       .then(() => {
         // Redirect the user to the "/videogames/added" page
-        window.location.href = "/videogames/added";
+        alert("Game added!");
       })
       .catch((error) => {
         console.error("Error adding video game: ", error);
@@ -86,7 +86,10 @@ export default function AddVideoGame() {
       <AddStyledForm>
         <AddStyledLabel>
           Name
-          <AddStyledInput value={name} onChange={(e) => setName(e.target.value)} />
+          <AddStyledInput
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </AddStyledLabel>
         <AddStyledLabel>
           Developer(s)
@@ -104,13 +107,15 @@ export default function AddVideoGame() {
         </AddStyledLabel>
         <AddStyledLabel>
           Genre
-          <AddStyledInput value={genre} onChange={(e) => setGenre(e.target.value)} />
+          <AddStyledInput
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+          />
         </AddStyledLabel>
       </AddStyledForm>
       <AddStyledButton to="/videogames/added" onClick={handleClick}>
         Submit
       </AddStyledButton>
     </AddFormWrapper>
-
   );
 }

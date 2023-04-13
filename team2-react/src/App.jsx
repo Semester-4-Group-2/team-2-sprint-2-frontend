@@ -11,7 +11,6 @@ import Home from "./Components/Home";
 import VideoGames from "./Components/VideoGames";
 import Navbar from "./Components/Navbar";
 import AddVideoGame from "./Components/AddVideoGame files/AddVideoGame";
-import GameAdded from "./Components/AddVideoGame files/GameAdded";
 import styled from "styled-components";
 import GameData from "./Components/FindBy/SpecificInfo/GameData";
 import EditGame from "./Components/FindBy/SpecificInfo/EditGame";
@@ -56,8 +55,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/videogames" element={<VideoGames />} />
           <Route path="/videogames/getAll" element={<FindAll />} />
-        <Route exact path="/" component={FindAll} />
-        <Route path="/videogames/edit/:id" element={<EditGame />} />
+          <Route exact path="/" component={FindAll} />
+          <Route path="/videogames/edit/:id" element={<EditGame />} />
 
           {/* confirm search specific */}
           <Route path="/videogames/getById/" element={<FindByID />} />
@@ -69,7 +68,6 @@ function App() {
             element={<FindByPlatform />}
           />
           <Route path="/videogames/add" element={<AddVideoGame />} />
-          <Route path="/videogames/added" element={<GameAdded />} />
           <Route path="/videogames/game" element={<GameData />} />
         </Routes>
         <Footer />
