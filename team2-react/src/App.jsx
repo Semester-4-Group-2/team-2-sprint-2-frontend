@@ -46,7 +46,7 @@ function App() {
     <Container>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></link>
       <Router>
-      <Header>GameGo</Header>
+      <Header></Header>
           <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

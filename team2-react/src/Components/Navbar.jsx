@@ -5,7 +5,7 @@ import styled from "styled-components";
 const Section = styled.div`
   display: flex;
   justify-content: center;
-  background-color: #3e8e41;
+  background-color: black;
   position: fixed;
   top: 0;
   left: 0;
@@ -48,16 +48,18 @@ const Links = styled.div`
     color: white;
     text-decoration: none;
     font-size: 20px;
-    padding: 25px;
-    line-height: 20px; /* Use line-height instead of padding */
+    padding: 0 30px;
+    line-height: 65px; /* Use line-height instead of padding */
     border-bottom: none; /* Remove the underline */
+    
   }
+  
   & a:hover {
-    color: black;
-    background-color: white;
-    border-radius: 5px;
+    color: green;
+    border-bottom: 2px solid green;
   }
 `;
+
 
 const List = styled.ul`
   display: flex;
