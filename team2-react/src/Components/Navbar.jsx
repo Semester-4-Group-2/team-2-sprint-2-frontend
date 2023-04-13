@@ -56,10 +56,10 @@ const Links = styled.div`
   }
 
   & a:hover {
-    color: #4CAF50;
+    color: white;
     background-color: rgb(255, 255, 255, 0.2);
     border-radius: 18px;
-    font-weight: bold;
+    font-weight: medium;
     font-size: 22px;
   }
 `;
