@@ -44,7 +44,7 @@ const Links = styled.div`
     color: white;
     text-decoration: none;
     font-size: 20px;
-    padding: 20px;
+    padding: 25px;
     line-height: 20px; /* Use line-height instead of padding */
   }
 
@@ -52,7 +52,6 @@ const Links = styled.div`
     color: black;
     background-color: white;
     border-radius: 5px;
-    line-height: 60px; /* Adjust the line-height to match the height of the parent element */
   }
 `;
 
