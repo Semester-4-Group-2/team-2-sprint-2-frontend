@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 const Container = styled.div`
   max-width: 800px;
@@ -83,14 +84,32 @@ export default function FindAll() {
           {videoGames.map((videoGame, index) =>
             index % 2 === 0 ? (
               <EvenRow key={index}>
-                <TitleCell>{videoGame.name}</TitleCell>
+                <TitleCell>
+                  <Link
+                    to="/videogames/game"
+                    state={{
+                      id: videoGame.id,
+                    }}
+                  >
+                    {videoGame.name}
+                  </Link>
+                </TitleCell>
                 <Td>{videoGame.developers}</Td>
                 <PlatformsCell>{videoGame.platforms}</PlatformsCell>
                 <Td>{videoGame.genre}</Td>
               </EvenRow>
             ) : (
               <OddRow key={index}>
-                <TitleCell>{videoGame.name}</TitleCell>
+                <TitleCell>
+                  <Link
+                    to="/videogames/game"
+                    state={{
+                      id: videoGame.id,
+                    }}
+                  >
+                    {videoGame.name}
+                  </Link>
+                </TitleCell>
                 <Td>{videoGame.developers}</Td>
                 <PlatformsCell>{videoGame.platforms}</PlatformsCell>
                 <Td>{videoGame.genre}</Td>

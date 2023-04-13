@@ -31,7 +31,14 @@ export default function FindByName() {
 
       {videoGames.map((videoGame) => (
         <div>
-          <Link>Name: {videoGame.name}</Link>
+          <Link
+            to="/videogames/game"
+            state={{
+              id: videoGame.id,
+            }}
+          >
+            Name: {videoGame.name}
+          </Link>
           <br />
           Developer(s): {videoGame.developers}
           <br />
