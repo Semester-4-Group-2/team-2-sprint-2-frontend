@@ -92,6 +92,7 @@ export default function AddVideoGame() {
     <AddFormWrapper>
       <h3>Add a Video Game</h3>
       <AddStyledForm>
+
         <AddStyledLabel>Name</AddStyledLabel>
         <AddStyledInput
           value={name}
