@@ -60,6 +60,9 @@ export default function Home() {
 
   return (
     <div className="App">
+    <div className="banner">
+        <img src="./images/banner.jpg" alt="Banner" />
+      </div>
       <h1 className="title">Latest News and Updates</h1>
       <div className="latest-news">
         <div className="article">
