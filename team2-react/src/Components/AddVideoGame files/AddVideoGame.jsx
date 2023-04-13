@@ -72,7 +72,7 @@ export default function AddVideoGame() {
     })
       .then(() => {
         // Redirect the user to the "/videogames/added" page
-        window.location.href = "/videogames/added";
+        alert("Game added!");
       })
       .catch((error) => {
         console.error("Error adding video game: ", error);
