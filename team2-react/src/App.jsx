@@ -14,6 +14,8 @@ import AddVideoGame from "./Components/AddVideoGame files/AddVideoGame";
 import styled from "styled-components";
 import GameData from "./Components/FindBy/SpecificInfo/GameData";
 import EditGame from "./Components/FindBy/SpecificInfo/EditGame";
+import NotFound from './Components/NotFound';
+
 
 const Container = styled.div`
   height: 100vh;
@@ -69,6 +71,7 @@ function App() {
           />
           <Route path="/videogames/add" element={<AddVideoGame />} />
           <Route path="/videogames/game" element={<GameData />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />
       </Router>
