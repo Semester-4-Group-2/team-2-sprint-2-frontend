@@ -1,4 +1,5 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByID() {
   const [id, setId] = React.useState("");
@@ -34,7 +35,14 @@ export default function FindByID() {
       </div>
       {videoGame.name && (
         <div>
-          <h3>{videoGame.name}</h3>
+          <Link
+            to="/videogames/game"
+            state={{
+              id: videoGame.id,
+            }}
+          >
+            <h3>{videoGame.name}</h3>
+          </Link>
           <p>Developers: {videoGame.developers}</p>
           <p>Platforms: {videoGame.platforms}</p>
           <p>Genre: {videoGame.genre}</p>
