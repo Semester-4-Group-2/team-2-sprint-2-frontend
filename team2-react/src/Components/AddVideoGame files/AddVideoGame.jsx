@@ -59,17 +59,30 @@ export default function AddVideoGame() {
   const [genre, setGenre] = React.useState("");
 
   const handleClick = (e) => {
+    e.preventDefault();
+    if (!name || !developers || !platforms || !genre) {
+      alert("Please fill out all fields.");
+      return;
+    }
     const videoGame = { name, developers, platforms, genre };
     fetch("http://localhost:8080/videogames/add", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(videoGame),
-    });
+    })
+      .then(() => {
+        // Redirect the user to the "/videogames/added" page
+        window.location.href = "/videogames/added";
+      })
+      .catch((error) => {
+        console.error("Error adding video game: ", error);
+      });
   };
 
   return (
     <AddFormWrapper>
       <h3>Add a Video Game</h3>
+
       <AddStyledForm>
         <AddStyledLabel>
           Name
@@ -98,5 +111,6 @@ export default function AddVideoGame() {
         Submit
       </AddStyledButton>
     </AddFormWrapper>
+
   );
 }

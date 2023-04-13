@@ -35,8 +35,13 @@ const VideoGamesLink = styled(Link)`
 `;
 
 export default function VideoGames() {
+  const handleGoBack = () => {
+    window.history.back();
+  };
   return (
-    <VideoGamesWrapper>
+
+    <VideoGamesWrapper>      
+    <button onClick={handleGoBack}>Previous Page</button>
       <VideoGamesHeading>Select which function.</VideoGamesHeading>
       <VideoGamesNav>
         <VideoGamesLink to="/videogames/getAll">Get Full List</VideoGamesLink>
@@ -46,6 +51,7 @@ export default function VideoGames() {
         <VideoGamesLink to={"/videogames/getByPlatforms/"}>Search By Platform</VideoGamesLink>
         <VideoGamesLink to={"/videogames/getByGenre/"}>Search By Genre</VideoGamesLink>
       </VideoGamesNav>
+
       <AddVideoGame />
     </VideoGamesWrapper>
   );

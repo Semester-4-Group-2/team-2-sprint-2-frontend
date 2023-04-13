@@ -50,8 +50,8 @@ function App() {
         rel="stylesheet"
       ></link>
       <Router>
-      <Header></Header>
-          <Navbar />
+        <Header></Header>
+        <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videogames" element={<VideoGames />} />
@@ -65,7 +65,7 @@ function App() {
           <Route path="/videogames/getByGenre/" element={<FindByGenre />} />
           <Route path="/videogames/getByDevelopers/" element={<FindByDev />} />
           <Route
-            path="/videogames/getByPlatform/"
+            path="/videogames/getByPlatforms/"
             element={<FindByPlatform />}
           />
           <Route path="/videogames/add" element={<AddVideoGame />} />

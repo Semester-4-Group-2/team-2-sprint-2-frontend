@@ -4,8 +4,6 @@ import Carousel from "react-elastic-carousel";
 
 import "./styles.css";
 
-
-
 export default function Home() {
   const breakPoints = [
     { width: 1, itemsToShow: 1 },
@@ -60,6 +58,9 @@ export default function Home() {
 
   return (
     <div className="App">
+      <div className="banner">
+        <img src="./images/banner.jpg" alt="Banner" />
+      </div>
       <h1 className="title">Latest News and Updates</h1>
       <div className="latest-news">
         <div className="article">
@@ -97,18 +98,18 @@ export default function Home() {
         </div>
       </div>
       <div className="sellers">
-      <h1 className="title">Top Sellers This Week</h1>
-      <Carousel breakPoints={breakPoints}>
-        {images.map((image, index) => (
-          <img
-            key={index}
-            src={image.src}
-            alt={image.alt}
-            className={image.className}
-            style={image.style}
-          />
-        ))}
-      </Carousel>
+        <h1 className="title">Top Sellers This Week</h1>
+        <Carousel breakPoints={breakPoints}>
+          {images.map((image, index) => (
+            <img
+              key={index}
+              src={image.src}
+              alt={image.alt}
+              className={image.className}
+              style={image.style}
+            />
+          ))}
+        </Carousel>
       </div>
     </div>
   );

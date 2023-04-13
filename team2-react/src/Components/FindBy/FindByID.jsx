@@ -20,8 +20,13 @@ export default function FindByID() {
       });
   };
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
+      <button onClick={handleGoBack}>Previous Page</button>
       <h2>Search for a Video Game by ID</h2>
       <div>
         <label htmlFor="id-input">ID:</label>

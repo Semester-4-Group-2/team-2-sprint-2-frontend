@@ -42,23 +42,28 @@ const Logo = styled(Link)`
 const Links = styled.div`
   display: flex;
   align-items: center;
-  height: 100%;
+  height: 100%; /* Set a fixed height */
+  padding: 0 20px; /* Add 20px of padding to the left and right sides */
 
   & a {
     color: white;
     text-decoration: none;
     font-size: 20px;
-    padding: 0 30px;
-    line-height: 65px; /* Use line-height instead of padding */
+    padding: 25px;
+    line-height: 20px; /* Use line-height instead of padding */
     border-bottom: none; /* Remove the underline */
-    
+    font-weight: medium;
   }
-  
+
   & a:hover {
-    color: green;
-    border-bottom: 2px solid green;
+    color: white;
+    background-color: rgb(255, 255, 255, 0.2);
+    border-radius: 18px;
+    font-weight: medium;
+    font-size: 22px;
   }
 `;
+
 
 
 const List = styled.ul`

@@ -68,8 +68,13 @@ export default function FindAll() {
       });
   }, []);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <Container>
+      <button onClick={handleGoBack}>Previous Page</button>
       <Title>List of All Video Games</Title>
       <Table>
         <thead>
