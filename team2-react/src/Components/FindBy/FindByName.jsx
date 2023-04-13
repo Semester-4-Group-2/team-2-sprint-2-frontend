@@ -1,22 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByName() {
-  const [name, setName] = React.useState("");
-  const [videoGames, setVideoGames] = React.useState([]);
+  const [name, setName] = useState("");
+  const [videoGames, setVideoGames] = useState([]);
 
   const getFilteredItems = (name, videoGames) => {
     if (!name) {
       return videoGames;
     }
 
-    fetch(`http://localhost:8080/videogames/getByName/${name}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setVideoGames(result);
-      });
-  };
-
-  const handleClickCheck = () => {
     fetch(`http://localhost:8080/videogames/getByName/${name}`)
       .then((res) => res.json())
       .then((result) => {
@@ -35,9 +28,17 @@ export default function FindByName() {
         value={name}
         onChange={(e) => setName(e.target.value)}
       />
+
       {videoGames.map((videoGame) => (
         <div>
-          Name: {videoGame.name}
+          <Link
+            to="/videogames/game"
+            state={{
+              id: videoGame.id,
+            }}
+          >
+            Name: {videoGame.name}
+          </Link>
           <br />
           Developer(s): {videoGame.developers}
           <br />

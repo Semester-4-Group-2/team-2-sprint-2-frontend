@@ -13,6 +13,7 @@ import Navbar from "./Components/Navbar";
 import AddVideoGame from "./Components/AddVideoGame files/AddVideoGame";
 import GameAdded from "./Components/AddVideoGame files/GameAdded";
 import styled from "styled-components";
+import GameData from "./Components/FindBy/SpecificInfo/GameData";
 
 const Container = styled.div`
   height: 100vh;
@@ -36,15 +37,17 @@ const Container = styled.div`
 const Header = styled.h1`
   font-size: 4rem;
   font-weight: 100vh;
-  color: #4CAF50;
+  color: #4caf50;
   text-align: center;
-  
 `;
 
 function App() {
   return (
     <Container>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet"></link>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap"
+        rel="stylesheet"
+      ></link>
       <Router>
       <Header></Header>
           <Navbar />
@@ -58,11 +61,12 @@ function App() {
           <Route path="/videogames/getByGenre/" element={<FindByGenre />} />
           <Route path="/videogames/getByDevelopers/" element={<FindByDev />} />
           <Route
-            path="/videogames/getByPlatforms/"
+            path="/videogames/getByPlatform/"
             element={<FindByPlatform />}
           />
           <Route path="/videogames/add" element={<AddVideoGame />} />
           <Route path="/videogames/added" element={<GameAdded />} />
+          <Route path="/videogames/game" element={<GameData />} />
         </Routes>
         <Footer />
       </Router>
