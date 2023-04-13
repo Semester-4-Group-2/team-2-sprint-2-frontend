@@ -21,7 +21,6 @@ const StyledForm = styled.form`
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 `;
 
-
 const StyledLabel = styled.label`
   font-size: 1rem;
   font-weight: bold;
@@ -53,14 +52,9 @@ const StyledButton = styled.button`
 `;
 
 export default function EditGame() {
-  const { id } = useParams();
-  const navigate = useNavigate();
-  const [videoGame, setVideoGame] = useState({
-    name: "",
-    developers: "",
-    platforms: "",
-    genre: "",
-  });
+  const { id } = useParams("");
+  const navigate = useNavigate("");
+  const [videoGame, setVideoGame] = useState([]);
 
   useEffect(() => {
     fetch(`http://localhost:8080/videogames/getById/${id}`)
@@ -93,45 +87,50 @@ export default function EditGame() {
 
   return (
     <EditFormWrapper>
-    <h3>Edit {videoGame.name}</h3>
-    <StyledForm onSubmit={handleSubmit}>
-      <StyledLabel htmlFor="name">Name:</StyledLabel>
-      <StyledInput
-        type="text"
-        id="name"
-        name="name"
-        value={videoGame.name}
-        onChange={handleChange}
-      />
-      <StyledLabel htmlFor="developers">Developers:</StyledLabel>
-      <StyledInput
-        type="text"
-        id="developers"
-        name="developers"
-        value={videoGame.developers}
-        onChange={handleChange}
-      />
-      <StyledLabel htmlFor="platforms">Platforms:</StyledLabel>
-      <StyledInput
-        type="text"
-        id="platforms"
-        name="platforms"
-        value={videoGame.platforms}
-        onChange={handleChange}
-      />
-      <StyledLabel htmlFor="genre">Genre:</StyledLabel>
-      <StyledInput
-        type="text"
-        id="genre"
-        name="genre"
-        value={videoGame.genre}
-        onChange={handleChange}
-      />
-      <StyledButton type="submit">Save Changes</StyledButton>
-    </StyledForm>
-    <Link to={{ pathname: `/videogames/game`, state: { id: id } }}>
-  <button>Cancel</button>
-</Link>
-  </ EditFormWrapper>
-);
+      <h3>Edit {videoGame.name}</h3>
+      <StyledForm onSubmit={handleSubmit}>
+        <StyledLabel htmlFor="name">Name:</StyledLabel>
+        <StyledInput
+          type="text"
+          id="name"
+          name="name"
+          value={videoGame.name}
+          onChange={handleChange}
+        />
+        <StyledLabel htmlFor="developers">Developers:</StyledLabel>
+        <StyledInput
+          type="text"
+          id="developers"
+          name="developers"
+          value={videoGame.developers}
+          onChange={handleChange}
+        />
+        <StyledLabel htmlFor="platforms">Platforms:</StyledLabel>
+        <StyledInput
+          type="text"
+          id="platforms"
+          name="platforms"
+          value={videoGame.platforms}
+          onChange={handleChange}
+        />
+        <StyledLabel htmlFor="genre">Genre:</StyledLabel>
+        <StyledInput
+          type="text"
+          id="genre"
+          name="genre"
+          value={videoGame.genre}
+          onChange={handleChange}
+        />
+        <StyledButton type="submit">Save Changes</StyledButton>
+      </StyledForm>
+      <Link
+        to="/videogames/game"
+        state={{
+          id: videoGame.id,
+        }}
+      >
+        <button>Cancel</button>
+      </Link>
+    </EditFormWrapper>
+  );
 }

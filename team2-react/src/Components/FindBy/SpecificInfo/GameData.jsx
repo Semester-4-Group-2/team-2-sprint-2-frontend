@@ -19,13 +19,13 @@ export default function GameData() {
 
   const handleDelete = () => {
     fetch(`http://localhost:8080/videogames/delete/${id}`, {
-      method: "DELETE"
+      method: "DELETE",
     })
       .then(() => {
         alert("Game successfully deleted");
         setTimeout(() => {
           navigate("/videogames", { replace: true });
-        }, 2000);
+        });
       })
       .catch((error) => {
         console.error("Error deleting game:", error);
