@@ -19,8 +19,13 @@ export default function FindByName() {
 
   const filteredItems = getFilteredItems(name, videoGames);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
+      <button onClick={handleGoBack}>Previous Page</button>
       <h2>Find Video Games by Name</h2>
       <input
         type="text"

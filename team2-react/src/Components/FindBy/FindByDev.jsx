@@ -19,8 +19,13 @@ export default function FindByDev() {
 
   const filteredItems = getFilteredItems(developers, videoGames);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
+      <button onClick={handleGoBack}>Previous Page</button>
       <h2>Find Video Games by Developing Studio</h2>
       <input
         type="text"

@@ -19,8 +19,13 @@ export default function FindByPlatform() {
 
   const filteredItems = getFilteredItems(platform, videoGames);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
+      <button onClick={handleGoBack}>Previous Page</button>
       <h2>Find Video Games by Platform</h2>
       <input
         type="text"
