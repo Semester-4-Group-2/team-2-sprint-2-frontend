@@ -1,12 +1,13 @@
-import React, { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function GameData() {
   const location = useLocation();
+  const navigate = useNavigate();
   const { id } = location.state;
   const [videoGame, setVideoGame] = React.useState({});
-  console.log(`The ID is : ${id}`);
+  const [isDeleted, setIsDeleted] = useState(false);
 
   useEffect(() => {
     fetch(`http://localhost:8080/videogames/getById/${id}`)
@@ -15,6 +16,22 @@ export default function GameData() {
         setVideoGame(data);
       });
   }, []);
+
+  const handleDelete = () => {
+    fetch(`http://localhost:8080/videogames/delete/${id}`, {
+      method: "DELETE"
+    })
+      .then(() => {
+        alert("Game successfully deleted");
+        setTimeout(() => {
+          navigate("/videogames", { replace: true });
+        }, 2000);
+      })
+      .catch((error) => {
+        console.error("Error deleting game:", error);
+      });
+  };
+
   return (
     <div>
       <h3>{videoGame.name}</h3>
@@ -24,6 +41,12 @@ export default function GameData() {
       <Link to={{ pathname: `/videogames/edit/${id}`, state: { videoGame } }}>
         <button>Update</button>
       </Link>
+      <button onClick={handleDelete}>Delete</button>
+      {isDeleted && (
+        <div>
+          <p>Game successfully deleted!</p>
+        </div>
+      )}
     </div>
   );
 }
