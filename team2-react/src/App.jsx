@@ -14,6 +14,7 @@ import AddVideoGame from "./Components/AddVideoGame files/AddVideoGame";
 import GameAdded from "./Components/AddVideoGame files/GameAdded";
 import styled from "styled-components";
 import GameData from "./Components/FindBy/SpecificInfo/GameData";
+import EditGame from "./Components/FindBy/SpecificInfo/EditGame";
 
 const Container = styled.div`
   height: 100vh;
@@ -55,6 +56,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/videogames" element={<VideoGames />} />
           <Route path="/videogames/getAll" element={<FindAll />} />
+        <Route exact path="/" component={FindAll} />
+        <Route path="/videogames/edit/:id" element={<EditGame />} />
+
           {/* confirm search specific */}
           <Route path="/videogames/getById/" element={<FindByID />} />
           <Route path="/videogames/getByName/" element={<FindByName />} />

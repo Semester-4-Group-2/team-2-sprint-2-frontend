@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function GameData() {
   const location = useLocation();
@@ -20,6 +21,9 @@ export default function GameData() {
       <p>Developers: {videoGame.developers}</p>
       <p>Platforms: {videoGame.platforms}</p>
       <p>Genre: {videoGame.genre}</p>
+      <Link to={`/videogames/edit/${videoGame.id}`}>
+  <button>Update</button>
+</Link>
     </div>
   );
 }
