@@ -19,9 +19,14 @@ export default function FindByGenre() {
 
   const filteredItems = getFilteredItems(genre, videoGames);
 
+  const handleGoBack = () => {
+    window.history.back();
+  };
+
   return (
     <div>
-      <h2>Find Video Games by Platform</h2>
+      <button onClick={handleGoBack}>Previous Page</button>
+      <h2>Find Video Games by Genre</h2>
       <input
         type="text"
         genre="genre-input"
