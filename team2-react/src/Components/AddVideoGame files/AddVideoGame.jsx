@@ -86,17 +86,20 @@ export default function AddVideoGame() {
       <AddStyledForm>
         <AddStyledLabel>
           Name
-          <AddStyledInput value={name} onChange={(e) => setName(e.target.value)} />
+          <AddStyledInput
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
         </AddStyledLabel>
         <AddStyledLabel>
-          Developer(s)
+          Developer
           <AddStyledInput
             value={developers}
             onChange={(e) => setDevelopers(e.target.value)}
           />
         </AddStyledLabel>
         <AddStyledLabel>
-          Platform(s)
+          Platform
           <AddStyledInput
             value={platforms}
             onChange={(e) => setPlatforms(e.target.value)}
@@ -104,13 +107,15 @@ export default function AddVideoGame() {
         </AddStyledLabel>
         <AddStyledLabel>
           Genre
-          <AddStyledInput value={genre} onChange={(e) => setGenre(e.target.value)} />
+          <AddStyledInput
+            value={genre}
+            onChange={(e) => setGenre(e.target.value)}
+          />
         </AddStyledLabel>
       </AddStyledForm>
       <AddStyledButton to="/videogames/added" onClick={handleClick}>
         Submit
       </AddStyledButton>
     </AddFormWrapper>
-
   );
 }
