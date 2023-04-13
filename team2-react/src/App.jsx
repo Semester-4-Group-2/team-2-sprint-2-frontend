@@ -49,8 +49,8 @@ function App() {
         rel="stylesheet"
       ></link>
       <Router>
-        <Header>GameGo</Header>
-        <Navbar />
+      <Header></Header>
+          <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/videogames" element={<VideoGames />} />

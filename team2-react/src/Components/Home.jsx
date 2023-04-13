@@ -60,7 +60,7 @@ export default function Home() {
 
   return (
     <div className="App">
-      <h1>Latest News and Updates</h1>
+      <h1 className="title">Latest News and Updates</h1>
       <div className="latest-news">
         <div className="article">
           <img src="./images/test1.png" alt="News 1" />
@@ -97,7 +97,7 @@ export default function Home() {
         </div>
       </div>
       <div className="sellers">
-      <h1>Top Sellers This Week</h1>
+      <h1 className="title">Top Sellers This Week</h1>
       <Carousel breakPoints={breakPoints}>
         {images.map((image, index) => (
           <img
