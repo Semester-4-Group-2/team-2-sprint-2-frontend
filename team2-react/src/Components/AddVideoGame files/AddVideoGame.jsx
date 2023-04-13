@@ -17,13 +17,16 @@ const AddFormWrapper = styled.div`
 const AddStyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: left;
   gap: 1rem;
-  width: 100%;
 `;
 
 const AddStyledLabel = styled.label`
   font-weight: bold;
   font-size: 1rem;
+  text-align: left;
+  width: 30%;
 `;
 
 const AddStyledInput = styled.input`
@@ -31,6 +34,9 @@ const AddStyledInput = styled.input`
   font-size: 1rem;
   border-radius: 3px;
   border: 1px solid #ccc;
+  width: 100%;
+  max-width: 250px;
+  margin: 0 auto;
   &:focus {
     border-color: #4caf50;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
@@ -39,16 +45,19 @@ const AddStyledInput = styled.input`
 
 const AddStyledButton = styled(Link)`
   display: inline-block;
+  margin-top: 1rem;
   padding: 0.5rem 1rem;
   font-size: 1rem;
   color: #fff;
-  background-color: #4caf50;
+  background-color: #570b83;
   border: none;
   border-radius: 3px;
   text-decoration: none;
   transition: background-color 0.3s;
   &:hover {
-    background-color: #3d8a40;
+    background-color: #8d24aa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   }
 `;
 
@@ -82,36 +91,28 @@ export default function AddVideoGame() {
   return (
     <AddFormWrapper>
       <h3>Add a Video Game</h3>
-
       <AddStyledForm>
-        <AddStyledLabel>
-          Name
-          <AddStyledInput
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-        </AddStyledLabel>
-        <AddStyledLabel>
-          Developer
-          <AddStyledInput
-            value={developers}
-            onChange={(e) => setDevelopers(e.target.value)}
-          />
-        </AddStyledLabel>
-        <AddStyledLabel>
-          Platform
-          <AddStyledInput
-            value={platforms}
-            onChange={(e) => setPlatforms(e.target.value)}
-          />
-        </AddStyledLabel>
-        <AddStyledLabel>
-          Genre
-          <AddStyledInput
-            value={genre}
-            onChange={(e) => setGenre(e.target.value)}
-          />
-        </AddStyledLabel>
+
+        <AddStyledLabel>Name</AddStyledLabel>
+        <AddStyledInput
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+        <AddStyledLabel>Developer</AddStyledLabel>
+        <AddStyledInput
+          value={developers}
+          onChange={(e) => setDevelopers(e.target.value)}
+        />
+        <AddStyledLabel>Platform</AddStyledLabel>
+        <AddStyledInput
+          value={platforms}
+          onChange={(e) => setPlatforms(e.target.value)}
+        />
+        <AddStyledLabel>Genre</AddStyledLabel>
+        <AddStyledInput
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        />
       </AddStyledForm>
       <AddStyledButton to="/videogames/added" onClick={handleClick}>
         Submit
