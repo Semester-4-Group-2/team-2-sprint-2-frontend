@@ -1,7 +1,7 @@
-
-
 body {
   background-color: white;
+  height: 100%;
+  margin: 0;
 }
 
 .App {
@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
 .article {
@@ -27,14 +27,14 @@ body {
   flex-direction: column;
   border-radius: 7px;
   background-color: #f1f1f1;
-  
+
   /* Add a box shadow for a 3D effect */
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
 
   /* Add a hover effect to make the card stand out */
   transition: transform 0.3s ease-in-out;
 }
-  
+
 .article:hover {
   transform: translateY(-5px);
 }
@@ -96,10 +96,17 @@ body {
   margin-top: 50px;
 }
 
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
 .footer {
   background-color: #f8f8f8;
   color: #333;
   padding: 50px 0;
+  margin-top: auto;
 }
 
 .container {
@@ -158,13 +165,13 @@ hr {
   margin-bottom: 0;
 }
 
-.title{
+.title {
   color: rgb(0, 0, 0);
   margin-top: 50px;
   margin-bottom: 50px;
 }
 
-.banner{
+.banner {
   background-image: url("https://images.unsplash.com/photo-1519680772-8b5c1b5b5f0d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
   background-size: cover;
   background-position: center;
@@ -174,5 +181,3 @@ hr {
   align-items: center;
   flex-direction: column;
 }
-
-

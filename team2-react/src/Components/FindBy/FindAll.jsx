@@ -11,6 +11,8 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: 28px;
   margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
 `;
 
 const Table = styled.table`
@@ -20,11 +22,11 @@ const Table = styled.table`
 `;
 
 const Th = styled.th`
-  padding: 10px;
-  text-align: left;
-  font-size: 18px;
+  background-color: #570b83;
+  color: #fff;
   font-weight: bold;
-  background-color: #f2f2f2;
+  padding: 0.5rem;
+  text-align: left;
 `;
 
 const Td = styled.td`
@@ -80,8 +82,8 @@ export default function FindAll() {
         <thead>
           <tr>
             <Th>Name</Th>
-            <Th>Developer(s)</Th>
-            <Th>Platform(s)</Th>
+            <Th>Developer</Th>
+            <Th>Platform</Th>
             <Th>Genre</Th>
           </tr>
         </thead>
