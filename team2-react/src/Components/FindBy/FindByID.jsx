@@ -32,6 +32,10 @@ const FindByIDHeading = styled.h2`
   margin-bottom: 1rem;
 `;
 
+const FindByIdLabel = styled.label`
+  margin-right: 1rem;
+`;
+
 const FindByIDInput = styled.input`
   padding: 0.5rem 1rem;
   border-radius: 3px;
@@ -108,7 +112,7 @@ export default function FindByID() {
       <PrevButton onClick={handleGoBack}>Previous Page</PrevButton>
       <FindByIDHeading>Search for a Video Game by ID</FindByIDHeading>
       <div>
-        <label htmlFor="id-input">ID:</label>
+        <FindByIdLabel>ID:</FindByIdLabel>
         <FindByIDInput
           type="text"
           id="id-input"

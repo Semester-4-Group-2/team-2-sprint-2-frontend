@@ -182,8 +182,7 @@ export default function AddVideoGame() {
           value={platforms}
           onChange={(e) => setPlatforms(e.target.value)}
         />
-        <AddStyledLabel></AddStyledLabel>
-        Genre
+        <AddStyledLabel>Genre</AddStyledLabel>
         <AddStyledSelect
           value={genre}
           onChange={(e) => setGenre(e.target.value)}
