@@ -38,24 +38,6 @@ const FindByNameInput = styled.input`
   margin-right: 1rem;
 `;
 
-const FindByNameSearchButton = styled.button`
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
-  color: #fff;
-  background-color: #570b83;
-  border: none;
-  border-radius: 3px;
-  text-decoration: none;
-  transition: background-color 0.3s;
-  &:hover {
-    background-color: #8d24aa;
-    transform: translateY(-2px);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-`;
-
 const TableWrapper = styled.div`
   margin-top: 2rem;
   width: 30%;
@@ -107,9 +89,6 @@ export default function FindByName() {
           value={name}
           onChange={(event) => setName(event.target.value)}
         />
-        <FindByNameSearchButton onClick={() => {}}>
-          Search
-        </FindByNameSearchButton>
       </div>
       {videoGames.length > 0 && (
         <TableWrapper>
