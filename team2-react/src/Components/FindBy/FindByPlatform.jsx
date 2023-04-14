@@ -53,7 +53,7 @@ export default function FindByPlatform() {
           </option>
         ))}
       </select>
-      {/* <button onClick={handleSearchClick}>Search</button> */}
+
 
       {videoGames.map((videoGame) => (
         <div>
