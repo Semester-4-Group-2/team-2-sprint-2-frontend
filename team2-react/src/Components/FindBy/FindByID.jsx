@@ -1,88 +1,88 @@
-import React, { useState, memo } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 
 const FindByIDWrapper = styled.main`
-display: flex;
-flex-direction: column;
-align-items: center;
-padding: 2rem;
-background-color: #f1f1f1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  background-color: #f1f1f1;
 `;
 
 const PrevButton = styled.button`
-display: inline-block;
-margin-top: 1rem;
-padding: 0.5rem 1rem;
-font-size: 1rem;
-color: #fff;
-background-color: #570b83;
-border: none;
-border-radius: 3px;
-text-decoration: none;
-transition: background-color 0.3s;
-&:hover {
-  background-color: #8d24aa;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #570b83;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #8d24aa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const FindByIDHeading = styled.h2`
-margin-bottom: 1rem;
+  margin-bottom: 1rem;
 `;
 
 const FindByIDInput = styled.input`
-padding: 0.5rem 1rem;
-border-radius: 3px;
+  padding: 0.5rem 1rem;
+  border-radius: 3px;
 
-margin-right: 1rem;
+  margin-right: 1rem;
 `;
 
 const FindByIDSearchButton = styled.button`
-display: inline-block;
-margin-top: 1rem;
-padding: 0.5rem 1rem;
-font-size: 1rem;
-color: #fff;
-background-color: #570b83;
-border: none;
-border-radius: 3px;
-text-decoration: none;
-transition: background-color 0.3s;
-&:hover {
-  background-color: #8d24aa;
-  transform: translateY(-2px);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #570b83;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #8d24aa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
 `;
 
 const TableWrapper = styled.div`
-margin-top: 2rem;
-width: 30%;
+  margin-top: 2rem;
+  width: 30%;
 `;
 
 const Table = styled.table`
-border-collapse: collapse;
-width: 100%;
+  border-collapse: collapse;
+  width: 100%;
 `;
 
 const Th = styled.th`
-background-color: #570b83;
-color: #fff;
-font-weight: bold;
-padding: 0.5rem;
-text-align: left;
+  background-color: #570b83;
+  color: #fff;
+  font-weight: bold;
+  padding: 0.5rem;
+  text-align: left;
 `;
 
 const Td = styled.td`
-border: 1px solid #ddd;
-padding: 0.5rem;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
 `;
 
-function FindByID() {
-  const [id, setId] = useState("");
-  const [videoGame, setVideoGame] = useState({});
+export default function FindByID() {
+  const [id, setId] = React.useState("");
+  const [videoGame, setVideoGame] = React.useState({});
 
   const handleInputChange = (event) => {
     setId(event.target.value);
@@ -103,9 +103,7 @@ function FindByID() {
     window.history.back();
   };
 
- 
   return (
-
     <FindByIDWrapper>
       <PrevButton onClick={handleGoBack}>Previous Page</PrevButton>
       <FindByIDHeading>Search for a Video Game by ID</FindByIDHeading>
@@ -157,8 +155,5 @@ function FindByID() {
         )}
       </TableWrapper>
     </FindByIDWrapper>
-
   );
-
 }
-export default memo(FindByID);
