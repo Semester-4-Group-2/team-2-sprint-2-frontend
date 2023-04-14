@@ -60,6 +60,24 @@ const PlatformsCell = styled.td`
   font-size: 16px;
 `;
 
+const PrevButton = styled.button`
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #570b83;
+  border: none;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+  &:hover {
+    background-color: #8d24aa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+`;
+
 export default function FindAll() {
   const [videoGames, setVideoGames] = React.useState([]);
   React.useEffect(() => {
@@ -76,7 +94,7 @@ export default function FindAll() {
 
   return (
     <Container>
-      <button onClick={handleGoBack}>Previous Page</button>
+      <PrevButton onClick={handleGoBack}>Previous Page</PrevButton>
       <Title>List of All Video Games</Title>
       <Table>
         <thead>

@@ -2,7 +2,6 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-
 const Section = styled.div`
   display: flex;
   justify-content: center;
@@ -27,8 +26,6 @@ const Container = styled.div`
     padding: 10px;
   }
 `;
-
-
 
 const Links = styled.div`
   display: flex;
@@ -95,10 +92,7 @@ const Navbar = () => {
   return (
     <Section>
       <Container>
-      <Logo to="/">
-      <img src={`${process.env.PUBLIC_URL}/images/go-logo-test.png`} alt="Logo" width="50" height="50" />GameGo
-          
-        </Logo>
+        <Logo to="/">GameGo</Logo>
         <MenuIcon>☰</MenuIcon>
         <Links>
           <List>
