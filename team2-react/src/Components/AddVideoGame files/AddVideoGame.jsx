@@ -66,6 +66,7 @@ const AddStyledSelect = styled.select`
   font-size: 1rem;
   border-radius: 3px;
   border: 1px solid #ccc;
+  width: 108%;
   &:focus {
     border-color: #4caf50;
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
@@ -126,7 +127,7 @@ const developersList = [
   "Infinity Ward",
   "Raven Software",
   "Pandemic Studios",
-  "Telltale Games"
+  "Telltale Games",
 ];
 export default function AddVideoGame() {
   const [name, setName] = React.useState("");
@@ -165,36 +166,38 @@ export default function AddVideoGame() {
           onChange={(e) => setName(e.target.value)}
         />
         <AddStyledLabel>Developer</AddStyledLabel>
-<AddStyledSelect
-  value={developers}
-  onChange={(e) => setDevelopers(e.target.value)}
->
-  <option value="">Select a developer</option>
-  {developersList.map((developer, index) => (
-    <option key={index} value={developer}>
-      {developer}
-    </option>
-  ))}
-</AddStyledSelect>
+        <AddStyledSelect
+          value={developers}
+          onChange={(e) => setDevelopers(e.target.value)}
+        >
+          <option value="">Select a developer</option>
+          {developersList.map((developer, index) => (
+            <option key={index} value={developer}>
+              {developer}
+            </option>
+          ))}
+        </AddStyledSelect>
         <AddStyledLabel>Platform</AddStyledLabel>
         <AddStyledInput
           value={platforms}
           onChange={(e) => setPlatforms(e.target.value)}
         />
-        <AddStyledLabel>
-  Genre
-  <AddStyledSelect value={genre} onChange={(e) => setGenre(e.target.value)}>
-    <option value="">Select a genre</option>
-    <option value="Action">Action</option>
-    <option value="Adventure">Adventure</option>
-    <option value="RPG">RPG</option>
-    <option value="Strategy">Strategy</option>
-    <option value="Simulation">Simulation</option>
-    <option value="Sports">Sports</option>
-    <option value="Racing">Racing</option>
-    {/* Add more genres as needed */}
-  </AddStyledSelect>
-</AddStyledLabel>
+        <AddStyledLabel></AddStyledLabel>
+        Genre
+        <AddStyledSelect
+          value={genre}
+          onChange={(e) => setGenre(e.target.value)}
+        >
+          <option value="">Select a genre</option>
+          <option value="Action">Action</option>
+          <option value="Adventure">Adventure</option>
+          <option value="RPG">RPG</option>
+          <option value="Strategy">Strategy</option>
+          <option value="Simulation">Simulation</option>
+          <option value="Sports">Sports</option>
+          <option value="Racing">Racing</option>
+          {/* Add more genres as needed */}
+        </AddStyledSelect>
       </AddStyledForm>
       <AddStyledButton to="/videogames/added" onClick={handleClick}>
         Submit
