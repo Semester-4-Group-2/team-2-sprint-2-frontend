@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByGenre() {
   const [genre, setGenre] = useState("");
   const [videoGames, setVideoGames] = useState([]);
 
-  const getFilteredItems = (genre, videoGames) => {
-    if (!genre) {
-      return videoGames;
-    }
-
+  useEffect(() => {
     fetch(`http://localhost:8080/videogames/getByGenre/${genre}`)
       .then((res) => res.json())
       .then((result) => {
         setVideoGames(result);
-      });
-  };
 
-  const filteredItems = getFilteredItems(genre, videoGames);
+        return videoGames;
+      });
+  }, [genre, videoGames]);
 
   const handleGoBack = () => {
     window.history.back();

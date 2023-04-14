@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByName() {
   const [name, setName] = useState("");
   const [videoGames, setVideoGames] = useState([]);
 
-  const getFilteredItems = (name, videoGames) => {
-    if (!name) {
-      return videoGames;
-    }
-
+  useEffect(() => {
     fetch(`http://localhost:8080/videogames/getByName/${name}`)
       .then((res) => res.json())
       .then((result) => {
         setVideoGames(result);
-      });
-  };
 
-  const filteredItems = getFilteredItems(name, videoGames);
+        return videoGames;
+      });
+  }, [name, videoGames]);
 
   const handleGoBack = () => {
     window.history.back();
