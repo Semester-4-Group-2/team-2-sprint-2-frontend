@@ -61,6 +61,17 @@ const AddStyledButton = styled(Link)`
   }
 `;
 
+const AddStyledSelect = styled.select`
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  &:focus {
+    border-color: #4caf50;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+  }
+`;
+
 export default function AddVideoGame() {
   const [name, setName] = React.useState("");
   const [developers, setDevelopers] = React.useState("");
@@ -107,11 +118,20 @@ export default function AddVideoGame() {
           value={platforms}
           onChange={(e) => setPlatforms(e.target.value)}
         />
-        <AddStyledLabel>Genre</AddStyledLabel>
-        <AddStyledInput
-          value={genre}
-          onChange={(e) => setGenre(e.target.value)}
-        />
+        <AddStyledLabel>
+  Genre
+  <AddStyledSelect value={genre} onChange={(e) => setGenre(e.target.value)}>
+    <option value="">Select a genre</option>
+    <option value="Action">Action</option>
+    <option value="Adventure">Adventure</option>
+    <option value="RPG">RPG</option>
+    <option value="Strategy">Strategy</option>
+    <option value="Simulation">Simulation</option>
+    <option value="Sports">Sports</option>
+    <option value="Racing">Racing</option>
+    {/* Add more genres as needed */}
+  </AddStyledSelect>
+</AddStyledLabel>
       </AddStyledForm>
       <AddStyledButton to="/videogames/added" onClick={handleClick}>
         Submit
