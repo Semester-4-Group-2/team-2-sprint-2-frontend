@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByDev() {
   const [developers, setDevelopers] = useState("");
   const [videoGames, setVideoGames] = useState([]);
 
-  const getFilteredItems = (developers, videoGames) => {
-    if (!developers) {
-      return videoGames;
-    }
-
+  useEffect(() => {
     fetch(`http://localhost:8080/videogames/getByDevelopers/${developers}`)
       .then((res) => res.json())
       .then((result) => {
         setVideoGames(result);
-      });
-  };
 
-  const filteredItems = getFilteredItems(developers, videoGames);
+        return videoGames;
+      });
+  }, [developers, videoGames]);
 
   const handleGoBack = () => {
     window.history.back();

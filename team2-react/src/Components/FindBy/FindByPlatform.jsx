@@ -1,23 +1,19 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function FindByPlatform() {
   const [platform, setPlatform] = useState("");
   const [videoGames, setVideoGames] = useState([]);
 
-  const getFilteredItems = (platform, videoGames) => {
-    if (!platform) {
-      return videoGames;
-    }
-
+  useEffect(() => {
     fetch(`http://localhost:8080/videogames/getByPlatforms/${platform}`)
       .then((res) => res.json())
       .then((result) => {
         setVideoGames(result);
-      });
-  };
 
-  const filteredItems = getFilteredItems(platform, videoGames);
+        return videoGames;
+      });
+  }, [platform, videoGames]);
 
   const handleGoBack = () => {
     window.history.back();
