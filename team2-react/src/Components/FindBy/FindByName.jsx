@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import styled from "styled-components";
 
 const FindByNameWrapper = styled.main`
@@ -30,6 +29,10 @@ const PrevButton = styled.button`
 
 const FindByNameHeading = styled.h2`
   margin-bottom: 1rem;
+`;
+
+const FindByNameLabel = styled.label`
+  margin-right: 1rem;
 `;
 
 const FindByNameInput = styled.input`
@@ -82,7 +85,7 @@ export default function FindByName() {
       <PrevButton onClick={handleGoBack}>Previous Page</PrevButton>
       <FindByNameHeading>Search for Video Games by Name</FindByNameHeading>
       <div>
-        <label htmlFor="name-input">Name:</label>
+        <FindByNameLabel>Name:</FindByNameLabel>
         <FindByNameInput
           type="text"
           id="name-input"
