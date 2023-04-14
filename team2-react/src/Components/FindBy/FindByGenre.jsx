@@ -6,14 +6,16 @@ export default function FindByGenre() {
   const [videoGames, setVideoGames] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/videogames/getByGenre/${genre}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setVideoGames(result);
-
-        return videoGames;
-      });
-  }, [genre, videoGames]);
+    if (genre) {
+      fetch(`http://localhost:8080/videogames/getByGenre/${genre}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setVideoGames(result);
+        });
+    } else {
+      setVideoGames([]);
+    }
+  }, [genre]);
 
   const handleGoBack = () => {
     window.history.back();
@@ -23,13 +25,17 @@ export default function FindByGenre() {
     <div>
       <button onClick={handleGoBack}>Previous Page</button>
       <h2>Find Video Games by Genre</h2>
-      <input
-        type="text"
-        genre="genre-input"
-        value={genre}
-        onChange={(e) => setGenre(e.target.value)}
-      />
-
+      <select value={genre} onChange={(e) => setGenre(e.target.value)}>
+  <option value="">Select a genre</option>
+  <option value="Action">Action</option>
+  <option value="Adventure">Adventure</option>
+  <option value="RPG">RPG</option>
+  <option value="Strategy">Strategy</option>
+  <option value="Simulation">Simulation</option>
+  <option value="Sports">Sports</option>
+  <option value="Racing">Racing</option>
+  {/* Add more genres as needed */}
+</select>
       {videoGames.map((videoGame) => (
         <div>
           <Link

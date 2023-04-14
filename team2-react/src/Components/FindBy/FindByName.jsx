@@ -6,14 +6,16 @@ export default function FindByName() {
   const [videoGames, setVideoGames] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:8080/videogames/getByName/${name}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setVideoGames(result);
-
-        return videoGames;
-      });
-  }, [name, videoGames]);
+    if (name) {
+      fetch(`http://localhost:8080/videogames/getByName/${name}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setVideoGames(result);
+        });
+    } else {
+      setVideoGames([]);
+    }
+  }, [name]);
 
   const handleGoBack = () => {
     window.history.back();
