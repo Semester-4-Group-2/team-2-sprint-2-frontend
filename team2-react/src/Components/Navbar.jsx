@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
+
 const Section = styled.div`
   display: flex;
   justify-content: center;
@@ -27,31 +28,21 @@ const Container = styled.div`
   }
 `;
 
-const Logo = styled(Link)`
-  font-size: 24px;
-  font-weight: bold;
-  color: white;
-  text-decoration: none;
-  margin-right: 50px;
 
-  @media only screen and (max-width: 768px) {
-    margin-right: 0;
-  }
-`;
 
 const Links = styled.div`
   display: flex;
   align-items: center;
-  height: 100%; /* Set a fixed height */
-  padding: 0 20px; /* Add 20px of padding to the left and right sides */
+  height: 100%;
+  padding: 0 20px;
 
   & a {
     color: white;
     text-decoration: none;
     font-size: 20px;
     padding: 25px;
-    line-height: 20px; /* Use line-height instead of padding */
-    border-bottom: none; /* Remove the underline */
+    line-height: 20px;
+    border-bottom: none;
     font-weight: medium;
   }
 
@@ -64,7 +55,19 @@ const Links = styled.div`
   }
 `;
 
+const Logo = styled(Link)`
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-right: 50px;
 
+  @media only screen and (max-width: 768px) {
+    margin-right: 0;
+  }
+`;
 
 const List = styled.ul`
   display: flex;
@@ -92,7 +95,10 @@ const Navbar = () => {
   return (
     <Section>
       <Container>
-        <Logo to="/">GameGo</Logo>
+      <Logo to="/">
+      <img src={`${process.env.PUBLIC_URL}/images/go-logo-test.png`} alt="Logo" width="50" height="50" />GameGo
+          
+        </Logo>
         <MenuIcon>☰</MenuIcon>
         <Links>
           <List>
@@ -124,4 +130,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-

@@ -71,7 +71,63 @@ const AddStyledSelect = styled.select`
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
   }
 `;
-
+const developersList = [
+  "Rockstar North",
+  "Rockstar San Diego",
+  "Naughty Dog",
+  "CD Projekt Red",
+  "Rockstar Studios",
+  "Santa Monica Studio",
+  "FromSoftware",
+  "Nintendo EPD",
+  "Guerrilla Games",
+  "Insomniac Games",
+  "P-Studio",
+  "Kojima Productions",
+  "Ubisoft Quebec",
+  "The Coalition",
+  "Playground Games",
+  "Bungie",
+  "Blizzard Entertainment",
+  "Epic Games",
+  "Bioware",
+  "Obsidian Entertainment",
+  "Larian Studios",
+  "Square Enix",
+  "Respawn Entertainment",
+  "EA DICE",
+  "Treyarch",
+  "id Software",
+  "Capcom",
+  "Arkane Studios",
+  "Sucker Punch Productions",
+  "Team Cherry",
+  "Moon Studios",
+  "Crytek",
+  "Hello Games",
+  "343 Industries",
+  "Ubisoft Montreal",
+  "PlatinumGames",
+  "Sumo Digital",
+  "Monolith Soft",
+  "Riot Games",
+  "NetherRealm Studios",
+  "Turn 10 Studios",
+  "Insomniac Games",
+  "Remedy Entertainment",
+  "Supermassive Games",
+  "Guerilla Cambridge",
+  "Game Freak",
+  "The Creative Assembly",
+  "Relic Entertainment",
+  "Vicarious Visions",
+  "Rare",
+  "Valve Corporation",
+  "Infinity Ward",
+  "Raven Software",
+  "Pandemic Studios",
+  "Telltale Games"
+];
 export default function AddVideoGame() {
   const [name, setName] = React.useState("");
   const [developers, setDevelopers] = React.useState("");
@@ -109,10 +165,17 @@ export default function AddVideoGame() {
           onChange={(e) => setName(e.target.value)}
         />
         <AddStyledLabel>Developer</AddStyledLabel>
-        <AddStyledInput
-          value={developers}
-          onChange={(e) => setDevelopers(e.target.value)}
-        />
+<AddStyledSelect
+  value={developers}
+  onChange={(e) => setDevelopers(e.target.value)}
+>
+  <option value="">Select a developer</option>
+  {developersList.map((developer, index) => (
+    <option key={index} value={developer}>
+      {developer}
+    </option>
+  ))}
+</AddStyledSelect>
         <AddStyledLabel>Platform</AddStyledLabel>
         <AddStyledInput
           value={platforms}

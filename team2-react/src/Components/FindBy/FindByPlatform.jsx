@@ -4,31 +4,56 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 export default function FindByPlatform() {
   const [platform, setPlatform] = useState("");
   const [videoGames, setVideoGames] = useState([]);
+  const platforms = [
+    "PlayStation 4, Xbox One, PlayStation 3, Xbox 360, PC",
+    "PlayStation 4",
+    "PlayStation 4, Xbox One, Nintendo Switch, PC",
+    "PlayStation 4, Xbox One, PC, Google Stadia",
+    "Nintendo Switch, Wii U",
+    "PlayStation 4, PlayStation 3",
+    "PlayStation 4, Xbox One, PC, Nintendo Switch",
+    "Xbox One, PC",
+    "PlayStation 4, Xbox One, PC, Nintendo Switch, iOS, Android",
+    "PlayStation 4, PlayStation 5",
+    "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC",
+    "PlayStation 4, PlayStation 5, Xbox One, Xbox Series X/S, PC, Nintendo Switch, Google Stadia",
+    "PC",
+  ];
 
   useEffect(() => {
-    fetch(`http://localhost:8080/videogames/getByPlatforms/${platform}`)
-      .then((res) => res.json())
-      .then((result) => {
-        setVideoGames(result);
-
-        return videoGames;
-      });
-  }, [platform, videoGames]);
+    if (platform) {
+      fetch(`http://localhost:8080/videogames/getByPlatforms/${platform}`)
+        .then((res) => res.json())
+        .then((result) => {
+          setVideoGames(result);
+        });
+    }
+  }, [platform]);
 
   const handleGoBack = () => {
     window.history.back();
+  };
+
+  const handleSearchClick = () => {
+    setPlatform(platform);
   };
 
   return (
     <div>
       <button onClick={handleGoBack}>Previous Page</button>
       <h2>Find Video Games by Platform</h2>
-      <input
-        type="text"
-        platform="platform-input"
+      <select
         value={platform}
         onChange={(e) => setPlatform(e.target.value)}
-      />
+      >
+        <option value="">Select a platform</option>
+        {platforms.map((platform, index) => (
+          <option key={index} value={platform}>
+            {platform}
+          </option>
+        ))}
+      </select>
+
 
       {videoGames.map((videoGame) => (
         <div>
